@@ -18,6 +18,12 @@ module "dreamhouse_black_app" {
   # Shared Resources
   log_forwarder_ecr_repository_url = data.terraform_remote_state.shared.outputs.log_forwarder_ecr_repository_url
 
+  # Shared Storage
+  data_bucket_id   = data.terraform_remote_state.shared.outputs.data_bucket_id
+  data_bucket_arn  = data.terraform_remote_state.shared.outputs.data_bucket_arn
+  config_bucket_id = data.terraform_remote_state.shared.outputs.config_bucket_id
+  config_bucket_arn = data.terraform_remote_state.shared.outputs.config_bucket_arn
+
   # ECR Configuration
   client_repo_name = var.client_repo_name
   config_repo_name = var.config_repo_name
