@@ -2,13 +2,13 @@
 # Uses dreamhouse-app module for all application resources
 
 module "dreamhouse_black_app" {
-  source = "../dh-terraform-modules/modules/dreamhouse-app"
+  source = "git::https://github.com/MiLabuda/dh-terraform-modules.git//modules/dreamhouse-app?ref=1.3.0"
 
   # Basic Configuration
-  environment     = var.environment
-  app_group_name  = var.app_group_name
-  app_name        = var.app_name
-  aws_region      = var.aws_region
+  environment    = var.environment
+  app_group_name = var.app_group_name
+  app_name       = var.app_name
+  aws_region     = var.aws_region
 
   # Network Configuration (from shared infrastructure)
   vpc_id                = data.terraform_remote_state.shared.outputs.vpc_id
@@ -19,9 +19,9 @@ module "dreamhouse_black_app" {
   log_forwarder_ecr_repository_url = data.terraform_remote_state.shared.outputs.log_forwarder_ecr_repository_url
 
   # Shared Storage
-  data_bucket_id   = data.terraform_remote_state.shared.outputs.data_bucket_id
-  data_bucket_arn  = data.terraform_remote_state.shared.outputs.data_bucket_arn
-  config_bucket_id = data.terraform_remote_state.shared.outputs.config_bucket_id
+  data_bucket_id    = data.terraform_remote_state.shared.outputs.data_bucket_id
+  data_bucket_arn   = data.terraform_remote_state.shared.outputs.data_bucket_arn
+  config_bucket_id  = data.terraform_remote_state.shared.outputs.config_bucket_id
   config_bucket_arn = data.terraform_remote_state.shared.outputs.config_bucket_arn
 
   # ECR Configuration
