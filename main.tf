@@ -2,7 +2,7 @@
 # Uses dreamhouse-app module for all application resources
 
 module "dreamhouse_black_app" {
-  source = "git::https://github.com/MiLabuda/dh-terraform-modules.git//modules/dreamhouse-app?ref=1.3.0"
+  source = "git::https://github.com/MiLabuda/dh-terraform-modules.git//modules/dreamhouse-app?ref=1.3.1"
 
   # Basic Configuration
   environment    = var.environment
